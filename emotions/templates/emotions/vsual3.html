@@ -1,0 +1,44 @@
+{% load static %}
+
+<html>
+    <head>
+        <style>
+            .container {
+              position: relative;
+              width: 100%;
+              max-width: 400px;
+            }
+            
+            
+            .container .btn {
+              position: absolute;
+              top: 80%;
+              left: 100%;
+              transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              background-color: #555;
+              color: white;
+              font-size: 16px;
+              padding: 12px 24px;
+              border: none;
+              cursor: pointer;
+              border-radius: 5px;
+              text-align: center;
+            }
+            
+            .container .btn:hover {
+              background-color: black;
+            }
+            </style>
+        
+        <title>
+            Emotion AI
+        </title>
+    </head>
+    <body>
+        <div class="container">
+            <video src="{% static 'emotions/videos/Countdown.mp4' %}" width="800" height="600" autoplay muted></video>
+            <button class="btn" onclick="document.location='monitor'">Lets Start !!</button>
+        </div>
+    </body>
+</html>

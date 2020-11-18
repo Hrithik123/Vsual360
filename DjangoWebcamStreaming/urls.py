@@ -17,10 +17,18 @@ from django.contrib import admin
 from django.http import StreamingHttpResponse
 from django.urls import path
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from camera import VideoCamera, gen
+from django.urls import include
 
 urlpatterns = [
-    path('monitor/', lambda r: StreamingHttpResponse(gen(VideoCamera()),
-                                                     content_type='multipart/x-mixed-replace; boundary=frame')),
     path('admin/', admin.site.urls),
+    path('emotions/',include('emotions.urls')),
+    path('emotions/monitor/', lambda r: StreamingHttpResponse(gen(VideoCamera()),
+                                                     content_type='multipart/x-mixed-replace; boundary=frame')),
+    
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()
